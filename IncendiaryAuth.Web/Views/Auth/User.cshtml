@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@model IncendiaryAuth.Domain.Abstract.Models.UserAuthModel
+
+<link href="~/custom/auth/user.css" rel="stylesheet" />
+
+<div class="content">
+    <form class="inputForm">
+        <div class="inputGroup">
+            <label for="userName">Username</label>
+            <input type="text" placeholder="" name="userName" required>
+        </div>
+        <div class="inputGroup">
+            <label for="password">Password</label>
+            <input type="password" placeholder="" name="password" required>
+        </div>
+        <button class="button" type="submit" onclick="send(event)">Log in</button>
+    </form>
+    <div class="resultMessage hidden">
+        <p class="messageText" id="message"></p>
+        <button class="button" type="submit" onclick="back(event)">Back</button>
+    </div>
+</div>
+
+<script src="~/custom/auth/user.js"></script>

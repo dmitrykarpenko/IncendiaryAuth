@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IncendiaryAuth.Dal.Abstract\IncendiaryAuth.Dal.Abstract.csproj" />
+    <ProjectReference Include="..\IncendiaryAuth.Domain.Abstract\IncendiaryAuth.Domain.Abstract.csproj" />
+  </ItemGroup>
+
+</Project>
