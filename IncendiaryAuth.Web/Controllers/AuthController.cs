@@ -22,16 +22,28 @@ namespace IncendiaryAuth.Web.Controllers
         [HttpGet]
         public new IActionResult User()
         {
-            var userauth = new UserAuthModel { UserName = "test user" };
-
-            return View(userauth);
+            return View();
         }
 
         [HttpPost]
         public new JsonResult User(UserAuthModel userAuth)
         {
+            if (!ModelState.IsValid)
+            {
+                var errors = ModelState
+                    .SelectMany(ms => ms.Value.Errors)
+                    .Select(me => me.ErrorMessage);
+                return Json(new { Error = string.Join(", ", errors) });
+            }
+
             var user = _authLogic.AuthenticateUser(userAuth);
             return Json(user);
+        }
+
+        [HttpGet]
+        public new IActionResult NotFound()
+        {
+            return View();
         }
     }
 }

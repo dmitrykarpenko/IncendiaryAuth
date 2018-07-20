@@ -12,14 +12,18 @@
         type: "post",
         success: function(user) {
             if (user) {
-                setText("message", "welcome " + user.userName);
-                setClass("resultMessage", "success");
-                removeClass("resultMessage", "error");
+                if (!user.error) {
+                    setText("message", "welcome " + user.userName);
+                    showResultMessageAsSuccess();
+                }
+                else {
+                    setText("message", user.error);
+                    showResultMessageAsError();
+                }
             }
             else {
                 setText("message", "looks like one of the fields is incorrect, please try again.");
-                setClass("resultMessage", "error");
-                removeClass("resultMessage", "success");
+                showResultMessageAsError();
             }
             toggleInputForm();
         },
@@ -41,6 +45,16 @@ function getData(inputName) {
 
 function setText(id, text) {
     document.getElementById(id).innerHTML = text;
+}
+
+function showResultMessageAsError() {
+    setClass("resultMessage", "error");
+    removeClass("resultMessage", "success");
+}
+
+function showResultMessageAsSuccess() {
+    setClass("resultMessage", "success");
+    removeClass("resultMessage", "error");
 }
 
 function toggleInputForm() {

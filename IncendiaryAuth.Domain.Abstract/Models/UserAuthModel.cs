@@ -10,11 +10,11 @@ namespace IncendiaryAuth.Domain.Abstract.Models
     public class UserAuthModel
     {
         [RegularExpression(@"^[a-zA-Z]+$",
-            ErrorMessage = "Only letters are allowed.")]
+            ErrorMessage = "Only letters are allowed for username.")]
         public string UserName { get; set; }
 
         [RegularExpression(@"^[0-9]+$",
-            ErrorMessage = "Only numbers are allowed.")]
+            ErrorMessage = "Only numbers are allowed for password.")]
         public string Password { get; set; }
     }
 }

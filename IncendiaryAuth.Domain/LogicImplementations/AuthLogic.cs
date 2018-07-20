@@ -28,6 +28,8 @@ namespace IncendiaryAuth.Domain.LogicImplementations
 
             var dto = _authRepository.GetUser(userAuth?.UserName);
 
+            // TODO: consider storing password hashes instead of passwords
+
             if (dto?.Password != userAuth.Password)
             {
                 return null;
