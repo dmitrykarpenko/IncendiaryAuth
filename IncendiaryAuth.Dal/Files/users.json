@@ -6,13 +6,13 @@
     "LastName": "Test's last name"
   },
   {
-    "Username": "test1",
+    "Username": "testone",
     "Password": "1",
     "FirstName": "Test1's first name",
     "LastName": "Test1's last name"
   },
   {
-    "Username": "test2",
+    "Username": "testtwo",
     "Password": "22",
     "FirstName": "Test2's first name",
     "LastName": "Test2's last name"

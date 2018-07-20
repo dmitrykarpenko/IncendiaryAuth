@@ -1,4 +1,4 @@
-﻿var faliledSignInsCount = 0;
+﻿var failedSignInsCount = 0;
 
 function send(event) {
     event.preventDefault();
@@ -28,7 +28,7 @@ function send(event) {
                 showResultMessageAsError();
             }
 
-            if (faliledSignInsCount >= 3) {
+            if (failedSignInsCount >= 3) {
                 window.location.href = "Auth/NotFound";
             }
 
@@ -57,13 +57,13 @@ function setText(id, text) {
 function showResultMessageAsError() {
     setClass("resultMessage", "error");
     removeClass("resultMessage", "success");
-    ++faliledSignInsCount;
+    ++failedSignInsCount;
 }
 
 function showResultMessageAsSuccess() {
     setClass("resultMessage", "success");
     removeClass("resultMessage", "error");
-    faliledSignInsCount = 0;
+    failedSignInsCount = 0;
 }
 
 function toggleInputForm() {
