@@ -1,4 +1,6 @@
-﻿function send(event) {
+﻿var faliledSignInsCount = 0;
+
+function send(event) {
     event.preventDefault();
 
     data = {
@@ -25,6 +27,11 @@
                 setText("message", "looks like one of the fields is incorrect, please try again.");
                 showResultMessageAsError();
             }
+
+            if (faliledSignInsCount >= 3) {
+                window.location.href = "Auth/NotFound";
+            }
+
             toggleInputForm();
         },
         error: function(e) {
@@ -50,11 +57,13 @@ function setText(id, text) {
 function showResultMessageAsError() {
     setClass("resultMessage", "error");
     removeClass("resultMessage", "success");
+    ++faliledSignInsCount;
 }
 
 function showResultMessageAsSuccess() {
     setClass("resultMessage", "success");
     removeClass("resultMessage", "error");
+    faliledSignInsCount = 0;
 }
 
 function toggleInputForm() {
