@@ -12,11 +12,11 @@ function send(event) {
         Password: getData("Password")
     };
 
-    $.ajax({
+    var ajax = {
         url: "/auth/user",
         data: data,
         type: "post",
-        success: function(user) {
+        success: function (user) {
             if (user) {
                 if (!user.error) {
                     setText("message", "welcome " + user.userName);
@@ -38,10 +38,18 @@ function send(event) {
 
             toggleInputForm();
         },
-        error: function(e) {
+        error: function (e) {
             // TODO: consider inexpected errors
         }
-    });
+    };
+    
+    var antiForgeryToken = $("input[name=__RequestVerificationToken]").val();
+    if (antiForgeryToken) {
+        ajax.headers = {};
+        ajax.headers["X-XSRF-Token"] = antiForgeryToken;
+    };
+
+    $.ajax(ajax);
 }
 
 function back(event) {

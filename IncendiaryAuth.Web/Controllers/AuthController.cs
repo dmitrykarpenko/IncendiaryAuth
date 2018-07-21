@@ -26,6 +26,7 @@ namespace IncendiaryAuth.Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public new JsonResult User(UserAuthModel userAuth)
         {
             if (!ModelState.IsValid)

@@ -20,9 +20,9 @@ namespace IncendiaryAuth.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IAuthRepository, AuthRepository>();
-
             services.AddTransient<IAuthLogic, AuthLogic>();
 
+            services.AddAntiforgery(options => options.HeaderName = "X-XSRF-Token");
             services.AddMvc();
         }
 
