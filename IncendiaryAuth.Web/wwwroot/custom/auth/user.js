@@ -3,9 +3,13 @@
 function send(event) {
     event.preventDefault();
 
-    data = {
-        UserName: getData("userName"),
-        Password: getData("password")
+    if (!$("#form").valid()) {
+        return;
+    }
+
+    var data = {
+        UserName: getData("UserName"),
+        Password: getData("Password")
     };
 
     $.ajax({

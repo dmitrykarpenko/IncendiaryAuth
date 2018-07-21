@@ -3,19 +3,25 @@
     // TODO: consider adding client-side validation to this page
 }
 
+@section Scripts {
+    <script src="~/custom/auth/user.js"></script>
+}
+
 @model IncendiaryAuth.Domain.Abstract.Models.UserAuthModel
 
 <link href="~/custom/auth/user.css" rel="stylesheet" />
 
 <div class="content">
-    <form class="inputForm">
+    <form class="inputForm" id="form">
         <div class="inputGroup">
-            <label for="userName">Username</label>
-            <input type="text" placeholder="" name="userName" required>
+            <label asp-for="UserName"></label>
+            <input asp-for="UserName">
+            <span class="validationError" asp-validation-for="UserName"></span>
         </div>
         <div class="inputGroup">
-            <label for="password">Password</label>
-            <input type="password" placeholder="" name="password" required>
+            <label asp-for="Password"></label>
+            <input asp-for="Password">
+            <span class="validationError" asp-validation-for="Password"></span>
         </div>
         <button class="button" type="submit" onclick="send(event)">Log in</button>
     </form>
@@ -24,5 +30,3 @@
         <button class="button" type="submit" onclick="back(event)">Back</button>
     </div>
 </div>
-
-<script src="~/custom/auth/user.js"></script>

@@ -27,6 +27,13 @@
         border: 1px solid black;
     }
 
+    .content .inputForm .inputGroup .validationError {
+        display: block;
+        font-size: 12px;
+        margin-top: 4px;
+        color: red;
+    }
+
 .content .inputForm .button {
     background-color: aqua;
     margin: 20px;
