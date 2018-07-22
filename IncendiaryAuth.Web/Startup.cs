@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using IncendiaryAuth.Dal.Abstract.Repositories;
-using IncendiaryAuth.Dal.Repositories;
-using IncendiaryAuth.Domain.Abstract.LogicInterfaces;
-using IncendiaryAuth.Domain.LogicImplementations;
+using IncendiaryAuth.CompositionRoot;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -19,8 +16,7 @@ namespace IncendiaryAuth.Web
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IAuthRepository, AuthRepository>();
-            services.AddTransient<IAuthLogic, AuthLogic>();
+            ServicesConfigurator.ConfigureServices(services);
 
             services.AddAntiforgery(options => options.HeaderName = "X-XSRF-Token");
             services.AddMvc();

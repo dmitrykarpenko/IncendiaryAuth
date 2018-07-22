@@ -5,13 +5,15 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IncendiaryAuth.Web", "IncendiaryAuth.Web\IncendiaryAuth.Web.csproj", "{45AFAADF-3FB7-4DC1-ACB5-2E8123F99A2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncendiaryAuth.Domain", "IncendiaryAuth.Domain\IncendiaryAuth.Domain.csproj", "{FCFCE12B-10CC-4018-9069-0C8BBAEBCEA1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IncendiaryAuth.Domain", "IncendiaryAuth.Domain\IncendiaryAuth.Domain.csproj", "{FCFCE12B-10CC-4018-9069-0C8BBAEBCEA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncendiaryAuth.Dal", "IncendiaryAuth.Dal\IncendiaryAuth.Dal.csproj", "{67DD7A93-47C8-4349-9604-C31C40E0D48A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IncendiaryAuth.Dal", "IncendiaryAuth.Dal\IncendiaryAuth.Dal.csproj", "{67DD7A93-47C8-4349-9604-C31C40E0D48A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncendiaryAuth.Dal.Abstract", "IncendiaryAuth.Dal.Abstract\IncendiaryAuth.Dal.Abstract.csproj", "{52D40A55-DDBD-4421-BC87-F8D543B03930}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IncendiaryAuth.Dal.Abstract", "IncendiaryAuth.Dal.Abstract\IncendiaryAuth.Dal.Abstract.csproj", "{52D40A55-DDBD-4421-BC87-F8D543B03930}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncendiaryAuth.Domain.Abstract", "IncendiaryAuth.Domain.Abstract\IncendiaryAuth.Domain.Abstract.csproj", "{39AFEBC6-B59C-4565-B769-89167CA4BA5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IncendiaryAuth.Domain.Abstract", "IncendiaryAuth.Domain.Abstract\IncendiaryAuth.Domain.Abstract.csproj", "{39AFEBC6-B59C-4565-B769-89167CA4BA5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncendiaryAuth.CompositionRoot", "IncendiaryAuth.CompositionRoot\IncendiaryAuth.CompositionRoot.csproj", "{D2975CC3-49B9-4BB4-B468-849E01D558E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{39AFEBC6-B59C-4565-B769-89167CA4BA5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39AFEBC6-B59C-4565-B769-89167CA4BA5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39AFEBC6-B59C-4565-B769-89167CA4BA5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2975CC3-49B9-4BB4-B468-849E01D558E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2975CC3-49B9-4BB4-B468-849E01D558E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2975CC3-49B9-4BB4-B468-849E01D558E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2975CC3-49B9-4BB4-B468-849E01D558E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

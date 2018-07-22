@@ -21,9 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\IncendiaryAuth.Domain\IncendiaryAuth.Domain.csproj" />
-    <ProjectReference Include="..\IncendiaryAuth.Dal.Abstract\IncendiaryAuth.Dal.Abstract.csproj" />
-    <ProjectReference Include="..\IncendiaryAuth.Dal\IncendiaryAuth.Dal.csproj" />
+    <ProjectReference Include="..\IncendiaryAuth.CompositionRoot\IncendiaryAuth.CompositionRoot.csproj" />
     <ProjectReference Include="..\IncendiaryAuth.Domain.Abstract\IncendiaryAuth.Domain.Abstract.csproj" />
   </ItemGroup>
 
