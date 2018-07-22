@@ -31,15 +31,17 @@ namespace IncendiaryAuth.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var errors = ModelState
-                    .SelectMany(ms => ms.Value.Errors)
-                    .Select(me => me.ErrorMessage);
-                return Json(new { Error = string.Join(", ", errors) });
+                return Json(new { Error = string.Join(", ", ModelStateErrors) });
             }
 
             var user = _authLogic.AuthenticateUser(userAuth);
             return Json(user);
         }
+
+        private IEnumerable<string> ModelStateErrors =>
+            ModelState
+                .SelectMany(ms => ms.Value.Errors)
+                .Select(me => me.ErrorMessage);
 
         [HttpGet]
         public new IActionResult NotFound()

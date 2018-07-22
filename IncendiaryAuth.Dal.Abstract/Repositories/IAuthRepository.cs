@@ -10,8 +10,9 @@ namespace IncendiaryAuth.Dal.Abstract.Repositories
 {
     public interface IAuthRepository
     {
-        //SignInInfoModel AddSuccessfulLogin(string userName);
-        //SignInInfoModel AddFailedLogin(string userName);
+        SignInInfoModel AddSuccessfulLogin(string userName);
+        SignInInfoModel AddFailedLogin(string userName);
+        SignInInfoModel GetSignInInfo(string userName);
 
         UserDto GetUser(string userName);
     }

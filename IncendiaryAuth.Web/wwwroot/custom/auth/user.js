@@ -18,13 +18,19 @@ function send(event) {
         type: "post",
         success: function (user) {
             if (user) {
-                if (!user.error) {
-                    setText("message", "welcome " + user.userName);
-                    showResultMessageAsSuccess();
+                // if has status code or error,
+                // other fields (e.g. firstName) can be empty 
+                if (user.statusHint == 404) {
+                    redirectToNotFound();
+                    return;
                 }
-                else {
+                else if (user.error) {
                     setText("message", user.error);
                     showResultMessageAsError();
+                }
+                else {
+                    setText("message", "welcome " + user.userName);
+                    showResultMessageAsSuccess();
                 }
             }
             else {
@@ -33,10 +39,14 @@ function send(event) {
             }
 
             if (failedSignInsCount >= 3) {
-                window.location.href = "Auth/NotFound";
+                redirectToNotFound();
             }
 
             toggleInputForm();
+
+            function redirectToNotFound() {
+                window.location.href = "Auth/NotFound";
+            }
         },
         error: function (e) {
             // TODO: consider inexpected errors

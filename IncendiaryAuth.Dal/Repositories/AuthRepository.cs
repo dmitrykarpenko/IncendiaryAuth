@@ -17,31 +17,29 @@ namespace IncendiaryAuth.Dal.Repositories
         private IEnumerable<UserDto> _users = null;
         private IEnumerable<UserDto> Users => _users ?? (_users = GetAllUsers());
 
-        // Coul also consider failed login counts as if those are e.g. saved in a database
+        // Considering failed sign in counts as if the counts are e.g. saved in a database
 
-        //private ConcurrentDictionary<string, SignInInfoModel> _signInsByUserNames =
-        //    new ConcurrentDictionary<string, SignInInfoModel>();
+        private ConcurrentDictionary<string, SignInInfoModel> _signInsByUserNames =
+            new ConcurrentDictionary<string, SignInInfoModel>();
 
-        //public SignInInfoModel AddSuccessfulLogin(string userName)
-        //{
-        //    var signInInfo = _signInsByUserNames
-        //        .GetOrAdd(userName, new SignInInfoModel { FailedCount = 0 });
+        public SignInInfoModel AddSuccessfulLogin(string userName)
+        {
+            var signInInfo = GetSignInInfo(userName);
+            if (signInInfo.FailedCount > 0)
+                signInInfo.FailedCount = 0;
+            return signInInfo;
+        }
 
-        //    if (signInInfo.FailedCount > 0)
-        //        signInInfo.FailedCount = 0;
+        public SignInInfoModel AddFailedLogin(string userName)
+        {
+            var signInInfo = GetSignInInfo(userName);
+            ++signInInfo.FailedCount;
+            return signInInfo;
+        }
 
-        //    return signInInfo;
-        //}
-
-        //public SignInInfoModel AddFailedLogin(string userName)
-        //{
-        //    var signInInfo = _signInsByUserNames
-        //        .GetOrAdd(userName, new SignInInfoModel { FailedCount = 0 });
-
-        //    ++signInInfo.FailedCount;
-
-        //    return signInInfo;
-        //}
+        public SignInInfoModel GetSignInInfo(string userName) =>
+             _signInsByUserNames
+                .GetOrAdd(userName.ToUpper(), new SignInInfoModel { FailedCount = 0 });
 
         public UserDto GetUser(string userName) =>
             !string.IsNullOrWhiteSpace(userName)
